@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content1 %}
+<h1> Who is the G.O.A.T </h1>
+<b> This is the best player </b><br>
+<b>{{favorite_player.player}} Votes: {{favorite_player.votes|string}}</b><br><br>
+These are the other candidates<br>
+<ul>
+{% for player in players %}
+  {% if player == favorite_player %}
+    {% continue %}
+  {% endif %}
+  <li>{{player.player}} Votes: {{player.votes|string}}</li>
+{% endfor %}
+</ul>
+{% endblock %}

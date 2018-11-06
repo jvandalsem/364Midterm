@@ -1,0 +1,29 @@
+<head>
+  <title>NBA Fun</title>
+</head>
+
+<p><big><b> Some NBA Fun :) </b></big></p>
+
+<ul>
+    <li><a href = "{{ url_for('home') }}">Home Page: Form Entry - NBA Blog Posts </a></li>
+    <li><a href = "{{ url_for('get_all_posts')}}">Take a look at all NBA blog posts</a></li>
+    <li><a href = "{{ url_for('get_nba_date_form') }}">Form Entry - NBA Scores from Past Date</a></li>
+    <li><a href = "{{ url_for('whos_the_goat')}}">Who's the G.O.A.T.?</a></li>
+</ul>
+
+{% block content1 %}
+<h1> Home Page </h1>
+<h2> Make a blog post about NBA Scores </h2>
+<form action='' method='POST'>
+    {{ form.name.label() }}{{ form.name() }}<br>
+    {{ form.post.label() }}{{ form.post() }}<br>
+    {{ form.submit() }}
+    {{ form.hidden_tag() }}
+</form>
+{% endblock %}
+
+<div>
+{% for m in get_flashed_messages() %}
+    <em><h3>{{ m }}</h3></em>
+{% endfor %}
+</div>

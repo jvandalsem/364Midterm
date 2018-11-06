@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content1 %}
+
+<form action='http://localhost:5000/game_scores_view' method="GET">
+    {{ form.date.label() }}{{ form.date() }}<br>
+    {{ form.submit() }}
+    {{ form.hidden_tag() }}
+</form>
+<br>
+
+{% endblock %}
